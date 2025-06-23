@@ -12,11 +12,12 @@ module top;
         gen = (count, gen2drv, gen2scr, gen_done);
 
         task run();
-        g.run();
-        g.t.display();
+            g.run();
+            g.t.display();
         endtask: run
         
         forever begin
+            run();
             gen2drv.get(t);
             t.display();
         end
