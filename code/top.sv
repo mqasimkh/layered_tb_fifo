@@ -4,22 +4,18 @@ module top;
     int count;
 
     generator gen;
-    
-    initial begin
-        function new();
-            gen2drv = new();
-            gen2scr = new();
-            gen = (count, gen2drv, gen2scr);
-        endfunction: new
+    transaction t;
 
+    initial begin
+        gen2drv = new();
+        gen2scr = new();
+        gen = (count, gen2drv, gen2scr, gen_done);
 
         task run();
-            g.run();
-            g.t.display();
+        g.run();
+        g.t.display();
         endtask: run
-
-        transaction t;
-
+        
         forever begin
             gen2drv.get(t);
             t.display();
