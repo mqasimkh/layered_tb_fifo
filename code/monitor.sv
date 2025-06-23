@@ -9,9 +9,9 @@ class monitor;
     endfunction:new
 
     task run();
+            t = new();
         forever begin
             @(posedge vif.clk);
-            t = new();
             t.data_out = vif.data_out;
             t.full = vif.full;
             t.empty = vif.empty;

@@ -18,19 +18,10 @@ class driver;
         vif.rd_en <= t.rd_en;
         vif.data_in <= t.data_in;
 
-        if (t.wr_en) begin
-            $display("*******************************************************************************");
-            $display("Transaction # : %0d\tType: Write", drv_count+1);
-            $display("*******************************************************************************");
-            $display("wr_en : %b | rd_en : %b | data_in : %0d |", t.wr_en, t.rd_en, t.data_in);
-        end
-
-        else begin
-            $display("*******************************************************************************");
-            $display("Transaction # : %0d\tType: Read", drv_count+1);
-            $display("*******************************************************************************");
-            $display("rd_en : %b", t.rd_en);
-        end
+        $display("*******************************************************************************");
+        $display("Transaction # : %0d\tRead : %b\tWrite : %b\tData_In : %0d", drv_count+1, t.wr_en, t.rd_en, t.data_in);
+        $display("*******************************************************************************");
+        //$display("wr_en : %b | rd_en : %b | data_in : %0d |", t.wr_en, t.rd_en, t.data_in);
 
         drv_count++;
     end

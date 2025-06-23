@@ -16,10 +16,14 @@ module tb;
         .full(bus.full),
         .empty(bus.empty)
     );
-
+    initial begin
+        bus.rst_n = 0;
+        @(posedge bus.clk);
+        bus.rst_n = 1;
+    end
     initial 
         begin
-            env = new(bus, 7);
+            env = new(bus, 17);
             env.run();
         end
 

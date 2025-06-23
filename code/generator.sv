@@ -22,6 +22,7 @@ class generator;
             gen2drv.put(t);
             gen2scr.put(t);
             gen_count++;
+            t.display();
         end
         -> complete;
     endtask: run

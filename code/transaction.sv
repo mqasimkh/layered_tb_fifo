@@ -13,6 +13,10 @@ class transaction;
         empty = 0;
     endfunction: new
 
+    constraint c1 {
+        wr_en != rd_en;
+    }
+
     function void display();
         $display("Data_in  :  %0d\t|\twr_en  :  %b\t|\trd_en  :  %b\t|\tdata_out  :  %d\t|\tfull  :  %b\t|\tempty  :  %b\t", data_in, wr_en, rd_en, data_out, full, empty);
     endfunction:display
