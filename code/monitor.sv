@@ -11,7 +11,6 @@ class monitor;
     task run();
         forever begin
             @(posedge vif.clk);
-            #1ns;
             t = new();
             t.data_out = vif.data_out;
             t.full = vif.full;
@@ -21,6 +20,5 @@ class monitor;
             $display("Data_out:\t%0d  |  Full_Flag:\t%0d\t  |  Empty_Flag:\t%0d\t", t.data_out, t.full, t.empty);
         end
     endtask: run
-
 
 endclass: monitor

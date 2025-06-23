@@ -1,5 +1,5 @@
 class env;
-    virtual mem_intf vif;
+    virtual intf vif;
     mailbox gen2drv, gen2scr, mon2scr;
     event gen_done;
     int count;
@@ -9,7 +9,7 @@ class env;
     monitor mon;
     scoreboard sb;
 
-    function new(virtual mem_intf vif, int count);
+    function new(virtual intf vif, int count);
         this.vif = vif;
         this.count = count;
         gen2drv = new();
@@ -42,7 +42,7 @@ class env;
         $display("\n");
 
         $display("***Generator Status***");
-        $display("Total Transactions Generated : %0d\t|\tRead Transactions : %0d\t|\tWrite Transactions : %0d", gen.gen_count, gen.count_r, gen.count_w);
+        $display("Total Transactions Generated : %0d\t", gen.gen_count);
         $display("\n");
 
         $display("***Driver Status***");
@@ -50,7 +50,7 @@ class env;
         $display("\n");
 
         $display("***Scoreboard Status***");
-        $display("Scoreboard Count : %0d\t|\tScoreboard Errors\t: %0d", sb.count, sb.errors);
+        $display("Scoreboard Count : %0d\t", sb.count);
         $display("\n");
     endtask
 
