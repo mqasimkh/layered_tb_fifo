@@ -11,6 +11,7 @@ class driver;
     task run();
     forever begin
         gen2drv.get(t);
+        @(posedge vif.clk);
         vif.wr_en <= t.wr_en;
         vif.rd_en <= t.rd_en;
         vif.data_in <= t.data_in;

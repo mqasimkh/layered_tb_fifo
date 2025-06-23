@@ -21,15 +21,15 @@ module top;
         d = new(gen2drv, intf);
 
         fork
-        gen.run();
-        d.run();
-        join_none
+            gen.run();
+            d.run();
+        join_any
         
         forever begin
             gen2drv.get(t);
             t.display();
         end
-    
+
     end
 
 endmodule: top
