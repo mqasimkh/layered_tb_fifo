@@ -1,4 +1,4 @@
-interface intf #(DATA_WIDTH = 8)(input clk);
+interface intf #(DATA_WIDTH = 8)(input bit clk);
     logic rst_n;
     logic wr_en, rd_en;
     logic [DATA_WIDTH-1:0] data_in;
