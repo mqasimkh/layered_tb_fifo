@@ -10,7 +10,6 @@ class generator;
         this.gen2scr = gen2scr;
         this.count = count;
         this.complete = complete;
-        gen2drv = new();
     endfunction: new
 
     task run();
@@ -22,7 +21,7 @@ class generator;
             gen2drv.put(t);
             gen2scr.put(t);
         end
-        -> complete;s
+        -> complete;
     endtask: run
 
 
