@@ -9,18 +9,18 @@ module top;
     initial begin
         gen2drv = new();
         gen2scr = new();
-        gen = (count, gen2drv, gen2scr, gen_done);
+        count = 0;
+        gen = new(9, gen2drv, gen2scr, gen_done);
 
-        task run();
-            g.run();
-            g.t.display();
-        endtask: run
+        fork
+        gen.run();
+        join_none
         
         forever begin
-            run();
             gen2drv.get(t);
             t.display();
         end
+    
     end
 
 endmodule: top

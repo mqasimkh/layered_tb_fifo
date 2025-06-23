@@ -5,7 +5,7 @@ class generator;
     int count;
     event complete;
     
-    function new (int count = 0; mailbox gen2drv, mailbox gen2scr, event complete);
+    function new (int count = 0, mailbox gen2drv, mailbox gen2scr, event complete);
         this.gen2drv = gen2drv;
         this.gen2scr = gen2scr;
         this.count = count;
