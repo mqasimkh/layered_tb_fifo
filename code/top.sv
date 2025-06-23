@@ -11,14 +11,14 @@ module top;
     initial clk = 0;
     always #5 clk = ~clk;
 
-    intf if(clk);
+    intf intf(clk);
 
     initial begin
         gen2drv = new();
         gen2scr = new();
         count = 0;
         gen = new(9, gen2drv, gen2scr, gen_done);
-        d = new(gen2drv, if);
+        d = new(gen2drv, intf);
 
         fork
         gen.run();
