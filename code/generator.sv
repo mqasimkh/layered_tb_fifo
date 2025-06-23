@@ -4,6 +4,7 @@ class generator;
     mailbox gen2scr;
     int count;
     event complete;
+    int gen_count = 0;
     
     function new (int count = 0, mailbox gen2drv, mailbox gen2scr, event complete);
         this.gen2drv = gen2drv;
@@ -20,6 +21,7 @@ class generator;
             assert (ok) else $error("Randomization Failed");
             gen2drv.put(t);
             gen2scr.put(t);
+            gen_count++;
         end
         -> complete;
     endtask: run
