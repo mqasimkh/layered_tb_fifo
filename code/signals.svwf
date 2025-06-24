@@ -1,0 +1,60 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.PTR_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.rst_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.data_in[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.data_out[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.w_en}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.r_en}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.fifo[0:7]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.r_ptr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.w_ptr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb.dut.wrap_around}]}
+	} ]]
+
+waveform xview limits 0 105ns

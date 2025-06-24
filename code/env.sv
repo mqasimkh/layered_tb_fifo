@@ -57,7 +57,7 @@ class env;
     task run();
         test();
         post_test();
-        //$finish;
+        $finish;
     endtask
 
 endclass

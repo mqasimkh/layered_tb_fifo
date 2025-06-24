@@ -19,11 +19,13 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
             gen2scr.get(expected);
             mon2scr.get(actual);
 
+            // if (!expected.rst) begin
+            //     if (actual.empty)
+            //         $display("RESET TEST PASSED");
+            // end
             if (!expected.rst) begin
-                if (actual.empty)
-                    $display("RESET TEST PASSED");
+                queue_t.delete();
             end
-
             if(expected.wr_en && expected.rst) begin
                 //$display("VIF: %b", expected.rst);
                 queue_t.push_back(expected.data_in);
@@ -34,9 +36,12 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
                 else
                     $display("WRITE FULL TEST FAILED");
             end
-                
+
+            //$display("Test before block"); 
+
             if(actual.rd_en) begin
                 exp_data = queue_t.pop_front();
+                $display("Test inside block");
                     if(exp_data != actual.data_out)
                         $display("Test Failed");
                     else
