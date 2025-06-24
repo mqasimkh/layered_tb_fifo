@@ -7,7 +7,7 @@ class write_full_trans extends transaction;
     endfunction
 endclass
 
-class write_full_test;
+class test_lib;
     virtual intf vif;
     env env1;
     int count;
@@ -18,7 +18,7 @@ class write_full_test;
         env1 = new(vif, count);
     endfunction
     
-    task run();
+    task write_full_test();
         write_full_trans tn;
         tn = new();
         // tn.display();
