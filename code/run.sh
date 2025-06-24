@@ -1,4 +1,4 @@
 #!/bin/csh
 
 source ~/cshrc
-xrun -f file.f -access +rwc
+xrun -f file.f -access +rwc #-gui

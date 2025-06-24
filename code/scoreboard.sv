@@ -19,6 +19,11 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
             gen2scr.get(expected);
             mon2scr.get(actual);
 
+            if (!expected.rst) begin
+                if (actual.empty)
+                    $display("RESET TEST PASSED");
+            end
+
             if(expected.wr_en && expected.rst) begin
                 //$display("VIF: %b", expected.rst);
                 queue_t.push_back(expected.data_in);
