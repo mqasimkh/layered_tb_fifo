@@ -17,7 +17,7 @@ class driver;
         vif.wr_en <= t.wr_en;
         vif.rd_en <= t.rd_en;
         vif.data_in <= t.data_in;
-        t.rst = vif.rst_n;
+        t.rst <= vif.rst_n;
         $display("===========================================================================================================================");
         $display("Transaction # : %0d\tRead : %b\tWrite : %b\tData_In : %0d\tReset : %b", drv_count+1, t.rd_en, t.wr_en, t.data_in, vif.rst_n);
         //$display("vif.rst_n: %b", vif.rst_n);
