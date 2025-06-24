@@ -18,7 +18,7 @@ class env;
         gen = new(count, gen2drv, gen2scr, gen_done);
         drv = new (gen2drv, vif);
         mon = new (mon2scr, vif);
-        sb = new(gen2scr, mon2scr);
+        sb = new(gen2scr, mon2scr, vif);
     endfunction
 
     task test();

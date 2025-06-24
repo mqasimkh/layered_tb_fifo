@@ -17,7 +17,7 @@ class write_full_test;
         this.count = count;
         env1 = new(vif, count);
     endfunction
-
+    
     task run();
         write_full_trans tn;
         tn = new();
