@@ -41,11 +41,10 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
 
             if(actual.rd_en) begin
                 exp_data = queue_t.pop_front();
-                $display("Test inside block");
                     if(exp_data != actual.data_out)
-                        $display("Test Failed");
+                        $display("TEST FAILED");
                     else
-                        $display("Test Passed");
+                        $display("*** DATA MATCHED. TEST PASSED ***");
                 end
                 count++;
             end
