@@ -6,4 +6,5 @@
 ./scoreboard.sv
 ./env.sv
 ./fifo.sv
+./test_1.sv
 ./top.sv

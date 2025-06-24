@@ -13,12 +13,23 @@ class transaction #(DATA_WIDTH = 8);
         empty = 0;
     endfunction: new
 
-    constraint c1 {
-        wr_en != rd_en;
-    }
+    // constraint c1 {
+    //     wr_en != rd_en;
+    // }
 
     function void display();
         $display("Data_in  :  %0d\t|\twr_en  :  %b\t|\trd_en  :  %b\t|\tdata_out  :  %d\t|\tfull  :  %b\t|\tempty  :  %b\t", data_in, wr_en, rd_en, data_out, full, empty);
     endfunction:display
+
+    virtual function transaction #(DATA_WIDTH) clone();
+        transaction #(DATA_WIDTH) t = new();
+        t.wr_en   = this.wr_en;
+        t.rd_en   = this.rd_en;
+        t.data_in = this.data_in;
+        t.data_out= this.data_out;
+        t.full    = this.full;
+        t.empty   = this.empty;
+        return t;
+    endfunction
         
 endclass: transaction

@@ -5,8 +5,11 @@ module tb;
     initial clk = 0;
     always #5 clk = ~clk;
 
+
     intf bus(clk);
     env env;
+    write_full_test test_1;
+
 
     synchronous_fifo #(DATA_WIDTH, DEPTH) dut (
         .clk(bus.clk), 
@@ -25,8 +28,13 @@ module tb;
     end
     initial 
         begin
-            env = new(bus, 7);
-            env.run();
+            $display("*******************************************************************");
+            $display("Running Write Full Test");
+            $display("*******************************************************************");
+            test_1 = new (bus, 9);
+            //env = new(bus, 7);
+            test_1.run();
+            $finish;
         end
 
 endmodule

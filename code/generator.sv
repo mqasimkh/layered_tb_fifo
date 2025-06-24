@@ -11,16 +11,18 @@ class generator;
         this.gen2scr = gen2scr;
         this.count = count;
         this.complete = complete;
+        t = new();
     endfunction: new
 
     task run();
         bit ok;
         repeat (count) begin
-            t = new();
+            transaction temp;
             ok = t.randomize();
             assert (ok) else $error("Randomization Failed");
-            gen2drv.put(t);
-            gen2scr.put(t);
+            temp = t.clone();
+            gen2drv.put(temp);
+            gen2scr.put(temp);
             gen_count++;
             t.display();
         end

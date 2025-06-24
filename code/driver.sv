@@ -22,8 +22,7 @@ class driver;
         $display("Transaction # : %0d\tRead : %b\tWrite : %b\tData_In : %0d\tReset : %b", drv_count+1, t.rd_en, t.wr_en, t.data_in, vif.rst_n);
         //$display("vif.wr_en: %b | vif.rd_en: %b | vif.data_in: %0d", vif.wr_en, vif.rd_en, vif.data_in);
         $display("***************************************************************************************************");
-        //$display("wr_en : %b | rd_en : %b | data_in : %0d |", t.wr_en, t.rd_en, t.data_in);
-
+        
         drv_count++;
     end
     endtask: run
