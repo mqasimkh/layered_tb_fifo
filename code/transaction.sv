@@ -3,6 +3,7 @@ class transaction #(DATA_WIDTH = 8);
     rand bit wr_en, rd_en;
     bit [DATA_WIDTH-1:0] data_out;
     bit full, empty;
+    bit rst;
     
     function new();
         data_in = 0;
@@ -29,6 +30,7 @@ class transaction #(DATA_WIDTH = 8);
         t.data_out= this.data_out;
         t.full    = this.full;
         t.empty   = this.empty;
+        t.rst = this.rst;
         return t;
     endfunction
         

@@ -15,9 +15,10 @@ class monitor;
             t.data_out = vif.data_out;
             t.full = vif.full;
             t.empty = vif.empty;
+            
             mon2scr.put(t);
             $display("***Monitor***");
-            $display("Data_out:\t%0d  |  Full_Flag:\t%0d\t  |  Empty_Flag:\t%0d\t", t.data_out, t.full, t.empty);
+            $display("Data_out:\t%0d  |  Full_Flag:\t%0d  |  Empty_Flag:\t%0d  ", t.data_out, t.full, t.empty);
             $display("");
         end
     endtask: run
