@@ -1,7 +1,7 @@
-class transaction;
-    rand bit [7:0] data_in;
+class transaction #(DATA_WIDTH = 8);
+    rand bit [DATA_WIDTH-1:0] data_in;
     rand bit wr_en, rd_en;
-    bit [7:0] data_out;
+    bit [DATA_WIDTH-1:0] data_out;
     bit full, empty;
     
     function new();

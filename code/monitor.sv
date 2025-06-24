@@ -11,13 +11,14 @@ class monitor;
     task run();
             t = new();
         forever begin
-            @(posedge vif.clk);
+            @(negedge vif.clk);
             t.data_out = vif.data_out;
             t.full = vif.full;
             t.empty = vif.empty;
             mon2scr.put(t);
             $display("***Monitor***");
             $display("Data_out:\t%0d  |  Full_Flag:\t%0d\t  |  Empty_Flag:\t%0d\t", t.data_out, t.full, t.empty);
+            $display("");
         end
     endtask: run
 

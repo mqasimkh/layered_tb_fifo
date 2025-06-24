@@ -16,21 +16,22 @@ class scoreboard #(parameter DATA_WIDTH = 8);
         forever begin
             gen2scr.get(expected);
             mon2scr.get(actual);
-            if(expected.wr_en) begin
+
+            if(expected.wr_en)
                 queue_t.push_back(expected.data_in);
-            end
+                
             if(actual.rd_en) begin
                 exp_data = queue_t.pop_front();
-                if(exp_data != actual.data_out) begin
-                    $display("Test failed");
+                    if(exp_data != actual.data_out)
+                        $display("Test failed");
                     else
-                    $display("Test Passed");
+                        $display("Test Passed");
                 end
+                count++;
             end
-            count++;
+            
             $display("Scoreboard count: %d", count);
             $display("\n");
-        end
     endtask: run
 
 endclass

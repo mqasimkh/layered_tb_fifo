@@ -27,5 +27,4 @@ class generator;
         -> complete;
     endtask: run
 
-
 endclass: generator

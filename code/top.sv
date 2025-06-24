@@ -1,4 +1,6 @@
 module tb;
+    parameter DATA_WIDTH = 8;
+    parameter DEPTH = 8;
     bit clk;
     initial clk = 0;
     always #5 clk = ~clk;
@@ -6,7 +8,7 @@ module tb;
     intf bus(clk);
     env env;
 
-    synchronous_fifo dut (
+    synchronous_fifo #(DATA_WIDTH, DEPTH) dut (
         .clk(bus.clk), 
         .rst_n(bus.rst_n),
         .w_en(bus.wr_en), 
@@ -23,7 +25,7 @@ module tb;
     end
     initial 
         begin
-            env = new(bus, 17);
+            env = new(bus, 7);
             env.run();
         end
 
