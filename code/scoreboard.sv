@@ -28,7 +28,7 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
                 queue_t.delete();
             end
             if(expected.wr_en && expected.rst) begin
-                //$display("VIF: %b", expected.rst);
+                //$display("VIF: %b", expected.rst);w
                 queue_t.push_back(expected.data_in);
             end
             if(queue_t.size() == DEPTH) begin

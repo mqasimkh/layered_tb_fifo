@@ -22,9 +22,9 @@ class generator;
 
 
     task run();
-        reset_test();
+        //reset_test();
         //read_after_write();
-        //write_full();
+        write_full();
         -> complete;
     endtask: run
 

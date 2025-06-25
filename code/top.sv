@@ -23,10 +23,10 @@ module tb;
     );
     initial 
         begin
-            // bus.rst_n = 0;
-            // @(posedge bus.clk);
-            // bus.rst_n = 1;
-            // @(posedge bus.clk);
+            bus.rst_n = 0;
+            @(posedge bus.clk);
+            bus.rst_n = 1;
+            @(posedge bus.clk);
 
             $display("***************************************************************************************************");
             $display("Read after Write Test");
