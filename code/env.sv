@@ -15,7 +15,7 @@ class env;
         gen2drv = new();
         gen2scr = new();
         mon2scr = new();
-        gen = new(count, gen2drv, gen2scr, gen_done);
+        gen = new(count, gen2drv, gen2scr, gen_done, vif);
         drv = new (gen2drv, vif);
         mon = new (mon2scr, vif);
         sb = new(gen2scr, mon2scr);
@@ -32,8 +32,8 @@ class env;
     
     task post_test();
         @(gen_done);
-        wait(drv.drv_count >= count);
-        wait(sb.count >= count);
+        wait(drv.drv_count >= gen.gen_count);
+        wait(sb.count >= gen.gen_count);
         $display("\n");
 
         $display("*************************************************************************************************************");

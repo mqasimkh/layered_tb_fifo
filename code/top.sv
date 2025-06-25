@@ -21,15 +21,12 @@ module tb;
         .full(bus.full),
         .empty(bus.empty)
     );
-    initial begin
-
-    end
     initial 
         begin
-            bus.rst_n = 0;
-            @(posedge bus.clk);
-            bus.rst_n = 1;
-            @(posedge bus.clk);
+            // bus.rst_n = 0;
+            // @(posedge bus.clk);
+            // bus.rst_n = 1;
+            // @(posedge bus.clk);
 
             $display("***************************************************************************************************");
             $display("Read after Write Test");

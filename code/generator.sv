@@ -2,15 +2,17 @@ class generator;
     transaction t;
     mailbox gen2drv;
     mailbox gen2scr;
+    virtual intf vif;
     int count;
     event complete;
     int gen_count = 0;
     
-    function new (int count = 0, mailbox gen2drv, mailbox gen2scr, event complete);
+    function new (int count = 0, mailbox gen2drv, mailbox gen2scr, event complete, virtual intf vif);
         this.gen2drv = gen2drv;
         this.gen2scr = gen2scr;
         this.count = count;
         this.complete = complete;
+        this.vif = vif;
         t = new();
     endfunction: new
 
@@ -20,7 +22,7 @@ class generator;
 
 
     task run();
-        reset_test()
+        reset_test();
         //read_after_write();
         //write_full();
         -> complete;
@@ -88,7 +90,10 @@ class generator;
 
     task reset_test();
         bit ok;
+            vif.rst_n <= 0;
+            @(posedge vif.clk);
             repeat (2) begin
+                
             transaction temp;
             t.wr_en.rand_mode(0);
             t.rd_en.rand_mode(0);
@@ -102,6 +107,7 @@ class generator;
             t.display();
             gen_count++;
         end
+        vif.rst_n <= 1;
     endtask
 
 
