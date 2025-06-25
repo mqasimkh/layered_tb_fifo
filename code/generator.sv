@@ -20,8 +20,9 @@ class generator;
 
 
     task run();
+        reset_test()
         //read_after_write();
-        write_full();
+        //write_full();
         -> complete;
     endtask: run
 
@@ -84,5 +85,24 @@ class generator;
             gen_count++;
         end
     endtask: read_after_write
+
+    task reset_test();
+        bit ok;
+            repeat (2) begin
+            transaction temp;
+            t.wr_en.rand_mode(0);
+            t.rd_en.rand_mode(0);
+            t.wr_en = 1;
+            t.rd_en = 0;
+            ok = t.randomize();
+            temp = t.clone();
+            assert (ok) else $error("Randomization Failed");
+            gen2drv.put(temp);
+            gen2scr.put(temp);
+            t.display();
+            gen_count++;
+        end
+    endtask
+
 
 endclass: generator
