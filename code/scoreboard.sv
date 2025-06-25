@@ -34,7 +34,9 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
             end
 
             if (queue_t.size() == DEPTH && !full_checked) begin
+                #1ns;
                 full_checked = 1;
+                $display("Queue Size: %0d | Full Flag: %b", queue_t.size(), actual.full);
             if (actual.full)
                 $display("WRITE FULL TEST PASSED");
             else
