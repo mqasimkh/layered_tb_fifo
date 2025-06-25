@@ -14,7 +14,7 @@ All classes were parameterized, so setting the FIFO depth in the top module auto
 
 Started with a reset test. Since the reset is active low, I de-asserted it and checked the empty flag and other related signals. As expected, the reset test passed.
 
-![Reset Test](screenshots/1.jpeg)
+![Reset Test](screenshots/1.jpg)
 
 ---
 
@@ -22,7 +22,7 @@ Started with a reset test. Since the reset is active low, I de-asserted it and c
 
 In this test, randomization was disabled for `wr_en` and `rd_en`. First half of the transactions were writes, and the second half were reads. The test passed and data was read correctly.
 
-![Read After Write](screenshots/2.jpeg)
+![Read After Write](screenshots/2.jpg)
 
 ---
 
@@ -30,7 +30,7 @@ In this test, randomization was disabled for `wr_en` and `rd_en`. First half of 
 
 Passed the FIFO depth as the count from top. All transactions were writes. If working correctly, the FIFO should set the full flag once it reaches maximum capacity. The full flag was asserted correctly, and the test passed.
 
-![Write Full Test](screenshots/3.jpeg)
+![Write Full Test](screenshots/3.jpg)
 
 ---
 
@@ -42,4 +42,4 @@ As depth was set 8 and was passed as count, 8 transactions ran for write full te
 
 This test also passed successfully.
 
-![Read Full Test](screenshots/4.jpeg)
+![Read Full Test](screenshots/4.jpg)
