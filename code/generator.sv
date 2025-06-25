@@ -38,6 +38,8 @@ class generator;
             t.rd_en.rand_mode(0);
             t.wr_en = 1;
             t.rd_en = 0;
+            ok = t.randomize();
+            temp = t.clone();
             assert (ok) else $error("Randomization Failed");
             gen2drv.put(temp);
             gen2scr.put(temp);
