@@ -20,7 +20,8 @@ class generator;
 
 
     task run();
-        read_after_write();
+        //read_after_write();
+        write_full();
         -> complete;
     endtask: run
 
