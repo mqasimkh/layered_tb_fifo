@@ -1,5 +1,5 @@
 xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	23.09-s006: Started on Jun 25, 2025 at 07:39:11 PKT
+TOOL:	xrun(64)	23.09-s006: Started on Jun 25, 2025 at 09:23:43 PKT
 xrun
 	-f file.f
 		./intf.sv
@@ -194,8 +194,8 @@ DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
 |
 xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
 Recompiling... reason: file './generator.sv' is newer than expected.
-	expected: Wed Jun 25 07:37:09 2025
-	actual:   Wed Jun 25 07:39:07 2025
+	expected: Wed Jun 25 09:22:04 2025
+	actual:   Wed Jun 25 09:23:37 2025
 DEFINE std       ./STD
 |
 xrun: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,1): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/STD' (cds.lib command ignored).
@@ -476,12 +476,12 @@ xmvlog_cg: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,14):
 DEFINE cds_amsfunctions ./CDS_AMSFUNCTIONS
 |
 xmvlog_cg: *W,DLCPTH (/home/cc/mnt/XCELIUM2309/tools/inca/files/cdsvhdl.lib,15): cds.lib Invalid path '/home/cc/mnt/XCELIUM2309/tools/inca/files/CDS_AMSFUNCTIONS' (cds.lib command ignored).
-		worklib.synchronous_fifo:sv <0x7fc3e854>
+		worklib.synchronous_fifo:sv <0x481961ab>
 			streams:   9, words:  3297
-		worklib.tb:sv <0x5472cf14>
+		worklib.tb:sv <0x51743270>
 			streams:  11, words:  4413
-		worklib.intf:sv <0x1cdc5d13>
-			streams:  82, words: 89832
+		worklib.intf:sv <0x4d3102d4>
+			streams:  80, words: 85591
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -552,16 +552,17 @@ Loading snapshot worklib.tb:sv .................... Done
 SVSEED default: 1
 xcelium> source /home/cc/mnt/XCELIUM2309/tools/xcelium/files/xmsimrc
 xcelium> run
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-Running Reset Test - Transactions
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Running Write Full Test - Transactions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Data_in  :  92	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
 Data_in  :  165	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
-***Monitor***
-Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	1  |   Read:	0  
-
-RESET TEST PASSED
-READ FULL TEST PASSED — FIFO is empty
+Data_in  :  169	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
+Data_in  :  211	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
+Data_in  :  204	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
+Data_in  :  187	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
+Data_in  :  123	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
+Data_in  :  83	|	wr_en  :  1	|	rd_en  :  0	|	data_out  :    0	|	full  :  0	|	empty  :  0	
 ===========================================================================================================================
 Transaction # : 1	Read : 0	Write : 1	Data_In : 92	Reset : 1
 ===========================================================================================================================
@@ -571,6 +572,47 @@ Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0
 ===========================================================================================================================
 Transaction # : 2	Read : 0	Write : 1	Data_In : 165	Reset : 1
 ===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 3	Read : 0	Write : 1	Data_In : 169	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 4	Read : 0	Write : 1	Data_In : 211	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 5	Read : 0	Write : 1	Data_In : 204	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 6	Read : 0	Write : 1	Data_In : 187	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 7	Read : 0	Write : 1	Data_In : 123	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	0  |  Empty_Flag:	0  |   Read:	0  
+
+===========================================================================================================================
+Transaction # : 8	Read : 0	Write : 1	Data_In : 83	Reset : 1
+===========================================================================================================================
+***Monitor***
+Data_out:	0  |  Full_Flag:	1  |  Empty_Flag:	0  |   Read:	0  
+
+Queue Size: 8 | Full Flag: 1
+WRITE FULL TEST PASSED
 
 
 *************************************************************************************************************
@@ -579,18 +621,18 @@ Transaction # : 2	Read : 0	Write : 1	Data_In : 165	Reset : 1
 
 
 ***Generator Status***
-Total Transactions Generated : 2	
+Total Transactions Generated : 8	
 
 
 ***Driver Status***
-Total Packets Sent	:   2
+Total Packets Sent	:   8
 
 
 ***Scoreboard Status***
-Scoreboard Count : 2	
+Scoreboard Count : 8	
 
 
-Simulation complete via $finish(1) at time 40 NS + 1
+Simulation complete via $finish(1) at time 97 NS + 0
 ./env.sv:60         $finish;
 xcelium> exit
-TOOL:	xrun(64)	23.09-s006: Exiting on Jun 25, 2025 at 07:39:12 PKT  (total: 00:00:01)
+TOOL:	xrun(64)	23.09-s006: Exiting on Jun 25, 2025 at 09:23:48 PKT  (total: 00:00:05)
