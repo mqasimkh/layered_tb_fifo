@@ -8,6 +8,7 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
     logic [DATA_WIDTH-1:0] queue_t [$];
     logic [DATA_WIDTH-1:0] exp_data;
     int count;
+    bit full_checked = 0;
 
     function new(mailbox gen2scr, mailbox mon2scr);
         this.gen2scr = gen2scr;
@@ -31,11 +32,13 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
                 //$display("VIF: %b", expected.rst);w
                 queue_t.push_back(expected.data_in);
             end
-            if(queue_t.size() == DEPTH) begin
-                if (actual.full)
-                    $display("WRITE FULL TEST PASSED");
-                else
-                    $display("WRITE FULL TEST FAILED");
+
+            if (queue_t.size() == DEPTH && !full_checked) begin
+                full_checked = 1;
+            if (actual.full)
+                $display("WRITE FULL TEST PASSED");
+            else
+                $display("WRITE FULL TEST FAILED");
             end
 
             //$display("Test before block"); 
