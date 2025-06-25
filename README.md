@@ -1,5 +1,7 @@
 # FIFO Verification Using SystemVerilog Layered Testbench
 
+Note: Tests are incomplete and will try to complete the task and update the repo.
+
 Created a layered testbench to verify the FIFO design and test the verification plan. Created golden model using a SV queue data structure to check the correctness of the FIFO.
 
 First created a separate test library and added individual testcases there. For each test, used a transaction class was used, with signal configurations specific to that test. The environment was instantiated from there, but this setup didn’t work as expected.
