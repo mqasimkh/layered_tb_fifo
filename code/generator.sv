@@ -20,7 +20,6 @@ class generator;
     /////////    Main Run   /////////
     /////////////////////////////////
 
-
     task run();
 
         $display("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
@@ -51,6 +50,7 @@ class generator;
     /////////    Tests      /////////
     /////////////////////////////////
 
+    /// READ FULL TEST ///
     task write_full();
         bit ok;
         repeat (count) begin
@@ -68,8 +68,9 @@ class generator;
             gen_count++;
         end
     endtask: write_full
+    /////////////////////////////////////////////////////////////////////////
 
-
+    /// READ AFTER WRITE TEST ///
     task read_after_write();
         bit ok;
         repeat (count/2) begin
@@ -105,7 +106,9 @@ class generator;
             gen_count++;
         end
     endtask: read_after_write
+    /////////////////////////////////////////////////////////////////////////
 
+    /// RESET TEST///
     task reset_test();
         bit ok;
             vif.rst_n <= 0;
@@ -127,7 +130,9 @@ class generator;
         end
         vif.rst_n <= 1;
     endtask
+    /////////////////////////////////////////////////////////////////////////
 
+    /// READ FULL TEST ///
     task read_full();
     bit ok;
     repeat (count) begin
@@ -143,7 +148,6 @@ class generator;
         t.display(); gen_count++;
     end
     endtask: read_full
-
-
+    /////////////////////////////////////////////////////////////////////////
 
 endclass: generator

@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/intf.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/transaction.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/generator.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/driver.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/monitor.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/scoreboard.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/env.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/fifo.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/tests.sv
+/home/cc/muhammad_qasim/system_verilog/weekly_task_2/layered_tb_fifo/code/top.sv
