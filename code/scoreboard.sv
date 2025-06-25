@@ -43,6 +43,11 @@ class scoreboard #(parameter DATA_WIDTH = 8, parameter DEPTH = 8);
                 $display("WRITE FULL TEST FAILED");
             end
 
+            if (queue_t.size() == 0 && actual.empty) begin
+                $display("READ FULL TEST PASSED — FIFO is empty");
+            end
+
+
             //$display("Test before block"); 
 
             if(actual.rd_en) begin

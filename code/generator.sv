@@ -25,6 +25,7 @@ class generator;
         //reset_test();
         //read_after_write();
         write_full();
+        read_full();
         -> complete;
     endtask: run
 
@@ -109,6 +110,23 @@ class generator;
         end
         vif.rst_n <= 1;
     endtask
+
+    task read_full();
+    bit ok;
+    repeat (count) begin
+        transaction temp;
+        t.wr_en.rand_mode(0);
+        t.rd_en.rand_mode(0);
+        t.wr_en = 0;
+        t.rd_en = 1;
+        ok = t.randomize(); 
+        assert (ok) else $error("Randomization Failed");
+        gen2drv.put(t.clone());
+        gen2scr.put(t.clone());
+        t.display(); gen_count++;
+    end
+    endtask: read_full
+
 
 
 endclass: generator
